@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Usman Azizat Olajuwon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #08080E;
+      --bg-alt: #101018;
+      --bg-card: #15151F;
+      --accent: #7062F5;
+      --accent-light: #9B90F8;
+      --accent-gold: #b8860b;
+      --text-main: #faf5ff;
+      --text-muted: #B8B4E8;
+      --border: rgba(112,98,245, 0.18);
+      --glow: rgba(112,98,245, 0.15);
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Background orbs */
+    body::before {
+      content: '';
+      position: fixed; top: -200px; left: -150px;
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(112,98,245,0.1) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed; bottom: -200px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(99,40,200,0.08) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,5,32,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem clamp(1.5rem, 5vw, 4rem);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .site-header .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text-main);
+    }
+    .site-header .logo img { height: 38px; width: auto; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-muted); font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: var(--transition);
+      border: 1px solid var(--border); border-radius: 50px; padding: 8px 18px;
+    }
+    .back-link:hover { color: var(--accent-light); border-color: var(--accent); }
+
+    /* Main layout */
+    .page-wrapper {
+      max-width: 1000px; margin: 0 auto;
+      padding: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 5vw, 3rem);
+      position: relative; z-index: 1;
+    }
+
+    /* Hero section */
+    .about-hero {
+      display: flex; flex-direction: column; gap: 2.5rem;
+      align-items: center; text-align: center;
+      padding-bottom: 4rem; border-bottom: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+    @media (min-width: 700px) {
+      .about-hero { flex-direction: row; text-align: left; align-items: flex-start; }
+    }
+
+.avatar-wrap {
+  flex-shrink: 0;
+  width: 200px;   /* a bit bigger for video */
+  height: 200px;
+  border-radius: 50%;  /* ← makes it circle */
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 40px var(--glow), 0 0 0 6px rgba(112,98,245,0.1);
+}
+.avatar-wrap video { width: 100%; height: 100%; object-fit: cover; }
+
+
+    .hero-text { flex: 1; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(112,98,245,0.1); border: 1px solid var(--border);
+      color: var(--accent-light); padding: 6px 16px;
+      border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+      margin-bottom: 1rem; letter-spacing: 0.5px;
+    }
+    .badge i { font-size: 5px; color: #00c875; }
+    .hero-text h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600; line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero-text h1 span { color: var(--accent-light); }
+    .hero-text .role {
+      font-size: 1.1rem; color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+    .hero-text p { color: var(--text-muted); font-size: 1rem; max-width: 520px; }
+    @media (max-width: 699px) { .hero-text p { margin: 0 auto; } }
+
+    .social-row {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 1.5rem; justify-content: center;
+    }
+    @media (min-width: 700px) { .social-row { justify-content: flex-start; } }
+
+    .social-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-muted); font-size: 1rem; text-decoration: none;
+      transition: var(--transition);
+    }
+    .social-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px); }
+
+    /* Sections */
+    .section { margin-bottom: 3.5rem; }
+    .section-label {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
+      font-weight: 700; color: var(--accent); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+    .section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 500; margin-bottom: 1.2rem; color: var(--text-main);
+    }
+    .section p { color: var(--text-muted); margin-bottom: 1rem; }
+
+    /* Skills grid */
+    .skills-wrap {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0.5rem;
+    }
+    .skill-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-muted); padding: 8px 16px; border-radius: 50px;
+      font-size: 0.88rem; font-weight: 500; transition: var(--transition);
+    }
+    .skill-chip:hover { border-color: var(--accent); color: var(--accent-light); box-shadow: 0 0 12px var(--glow); }
+    .skill-chip img { width: 18px; height: 18px; object-fit: contain; }
+    .skill-chip.backend { border-color: rgba(112,98,245,0.3); color: var(--accent-light); }
+    .skill-chip.tool { border-color: rgba(184,134,11,0.25); color: #d4a842; }
+
+    /* Category label */
+    .cat-label {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--text-muted); font-weight: 700; margin-bottom: 10px; margin-top: 1.2rem;
+    }
+
+    /* What I'm doing cards */
+    .doing-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 1rem; margin-top: 0.5rem;
+    }
+    @media (min-width: 600px) { .doing-grid { grid-template-columns: 1fr 1fr; } }
+
+    .doing-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem; transition: var(--transition);
+    }
+    .doing-card:hover { border-color: var(--accent); box-shadow: 0 0 20px var(--glow); }
+    .doing-card .icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: rgba(112,98,245,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--accent); margin-bottom: 0.8rem;
+    }
+    .doing-card h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main); }
+    .doing-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* Values / bullets */
+    .value-list { display: flex; flex-direction: column; gap: 0.9rem; }
+    .value-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 1rem 1.2rem; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px;
+      transition: var(--transition);
+    }
+    .value-item:hover { border-color: var(--accent); }
+    .value-item .icon { color: var(--accent); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+    .value-item p { font-size: 0.95rem; color: var(--text-muted); }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(112,98,245,0.12), rgba(99,40,200,0.08));
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 2.5rem; text-align: center;
+    }
+    .cta-box h2 { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.8rem; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--accent), #5647C4);
+      color: #fff; padding: 14px 28px; border-radius: 50px;
+      font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(112,98,245,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(112,98,245,0.5); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--accent-light);
+      border: 1px solid var(--border); padding: 14px 28px; border-radius: 50px;
+      font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: var(--transition);
+    }
+    .btn-secondary:hover { border-color: var(--accent); background: rgba(112,98,245,0.08); }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      text-align: center; padding: 2rem;
+      color: var(--text-muted); font-size: 0.88rem;
+      position: relative; z-index: 1;
+    }
+
+    /* Animations */
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.7s ease forwards; }
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="index.html" class="logo">
+      <img src="./images/nav-logo.svg" alt="Ziizat Tech Logo">
+    </a>
+    <a href="index.html" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- Hero -->
+    <div class="about-hero fade-in">
+  <div class="avatar-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="./bigdammy.mp4" type="video/mp4">
+    </video>
+  </div>
+
+      <div class="hero-text">
+        <div class="badge"><i class="fa-solid fa-circle"></i> Open to Opportunities</div>
+        <h1>Usman <span>Azizat</span> Olajuwon</h1>
+        <p class="role">Full Stack Developer · Lagos, Nigeria 🇳🇬</p>
+        <p>I'm a passionate developer who loves building clean, user-friendly web applications from the ground up — both frontend and backend. I turn ideas into shipped products.</p>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/azizat-usman-20a4553a5?" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/bigdammy-tech" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/i_am_bigdammy?" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://tiktok.com/@__bigdammy_" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://x.com/bigdammy686?s=21" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Me -->
+    <div class="section fade-in">
+      <p class="section-label"><i class="fa-solid fa-user"></i> About Me</p>
+      <h2>My Story</h2>
+      <p>
+        I'm Usman Azizat Olajuwon, a Full Stack Developer based in Lagos, Nigeria. I started my journey learning HTML and CSS, and quickly fell in love with the problem-solving side of programming. Since then, I've grown into a developer who builds both the things people see — and the systems that power them behind the scenes.
+      </p>
+      <p>
+        My goal is to write code that's clean, purposeful, and impactful. I believe the best applications are built at the intersection of great design, solid engineering, and real user empathy.
+      </p>
+      <p>
+        I work across the full stack — building frontend interfaces with React and powering them with backend APIs using Node.js, Express, MongoDB, and Java.
+      </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="section fade-in">
+      <p class="section-label"><i class="fa-solid fa-code"></i> Skills</p>
+      <h2>Technologies I Work With</h2>
+
+      <p class="cat-label">Frontend</p>
+      <div class="skills-wrap">
+        <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML5</span>
+        <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS3</span>
+        <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">JavaScript</span>
+        <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">React</span>
+        <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="">Tailwind CSS</span>
+        <span class="skill-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" alt="">Vite</span>
+      </div>
+
+      <p class="cat-label">Backend</p>
+      <div class="skills-wrap">
+        <span class="skill-chip backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="">Node.js</span>
+        <span class="skill-chip backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="" style="filter:invert(0.6) sepia(1) hue-rotate(240deg) saturate(3)">Express.js</span>
+        <span class="skill-chip backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="">MongoDB</span>
+        <span class="skill-chip backend"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">Java</span>
+      </div>
+
+      <p class="cat-label">Tools</p>
+      <div class="skills-wrap">
+        <span class="skill-chip tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">Git</span>
+        <span class="skill-chip tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" style="filter:invert(0.7) sepia(1) hue-rotate(30deg) saturate(2)">GitHub</span>
+        <span class="skill-chip tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="">Postman</span>
+        <span class="skill-chip tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="">VS Code</span>
+        <span class="skill-chip tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="">Figma</span>
+      </div>
+    </div>
+
+    <!-- What I'm Doing -->
+    <div class="section fade-in">
+      <p class="section-label"><i class="fa-solid fa-rocket"></i> What I Do</p>
+      <h2>Areas of Focus</h2>
+      <div class="doing-grid">
+        <div class="doing-card">
+          <div class="icon"><i class="fa-solid fa-desktop"></i></div>
+          <h3>Frontend Development</h3>
+          <p>Building responsive, interactive interfaces with React, Vite, HTML, CSS, and modern JavaScript.</p>
+        </div>
+        <div class="doing-card">
+          <div class="icon"><i class="fa-solid fa-server"></i></div>
+          <h3>Backend Development</h3>
+          <p>Building APIs and full-stack applications end-to-end with Node.js, Express, and MongoDB.</p>
+        </div>
+        <div class="doing-card">
+          <div class="icon"><i class="fa-brands fa-github"></i></div>
+          <h3>Open Source &amp; GitHub</h3>
+          <p>Pushing all projects to GitHub — maintaining version control and sharing my work publicly.</p>
+        </div>
+        <div class="doing-card">
+          <div class="icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3>Deployment</h3>
+          <p>Deploying live projects on Vercel and GitHub Pages so real users can experience my work.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="section fade-in">
+      <p class="section-label"><i class="fa-solid fa-star"></i> What Drives Me</p>
+      <h2>My Values as a Developer</h2>
+      <div class="value-list">
+        <div class="value-item">
+          <i class="fa-solid fa-check-circle icon"></i>
+          <p><strong style="color:var(--text-main);">Clean Code First.</strong> I write code that's readable, maintainable, and built to last — not just code that works today.</p>
+        </div>
+        <div class="value-item">
+          <i class="fa-solid fa-check-circle icon"></i>
+          <p><strong style="color:var(--text-main);">Ship Real Things.</strong> I believe in building and deploying actual products — not just staying in tutorial mode.</p>
+        </div>
+        <div class="value-item">
+          <i class="fa-solid fa-check-circle icon"></i>
+          <p><strong style="color:var(--text-main);">Always Learning.</strong> Tech moves fast, and I stay curious — constantly adding new skills to my stack.</p>
+        </div>
+        <div class="value-item">
+          <i class="fa-solid fa-check-circle icon"></i>
+          <p><strong style="color:var(--text-main);">User-First Thinking.</strong> Every interface I build is designed with real users in mind — not just for the demo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box fade-in">
+      <h2>Let's Build Something Together 🚀</h2>
+      <p>I'm open to full-time roles, freelance projects, collaborations, and internship opportunities. If you're building something exciting, let's talk.</p>
+      <div class="cta-btns">
+        <a href="index.html#contact" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
+        <a href="https://github.com/bigdammy-tech" target="_blank" rel="noopener noreferrer" class="btn-secondary"><i class="fa-brands fa-github"></i> View GitHub</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="yr"></span> Usman Azizat Olajuwon — Designed with 💜 in Lagos, Nigeria</p>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

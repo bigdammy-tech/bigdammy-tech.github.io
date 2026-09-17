@@ -1,0 +1,16 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9B90F8"/>
+      <stop offset="100%" stop-color="#5647C4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Mark: rounded square badge, no baked-in white background -->
+  <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#markGrad)"/>
+  <text x="20" y="27" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" fill="#ffffff">Z</text>
+
+  <!-- Wordmark -->
+  <text x="50" y="18" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="0.3">Ziizat</text>
+  <text x="50" y="32" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="500" fill="#9B90F8" letter-spacing="2">TECH</text>
+</svg>
